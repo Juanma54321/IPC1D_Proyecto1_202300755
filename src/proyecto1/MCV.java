@@ -2,9 +2,10 @@
 package proyecto1;
 
 import Controller.ControladorLogin;
+import Controller.ControladorPrincipal;
 import Model.InformacionLogin;
 import View.LoginVista;
-
+import View.UserVista;
 
 public class MCV {
 
@@ -15,8 +16,5 @@ public class MCV {
         
         control1.iniciarLogin();
         vista1.setVisible(true);
-        
-        System.out.println(info.Contrasena);
-        
     }    
 }

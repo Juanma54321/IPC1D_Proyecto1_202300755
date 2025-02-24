@@ -29,11 +29,12 @@ public class LoginVista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         UsuarioPrincipal = new javax.swing.JTextField();
-        ContrasenaPrincipal = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         BtnLogin = new javax.swing.JButton();
+        ContrasenaInicio = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel1.setText("LOGIN");
@@ -41,15 +42,10 @@ public class LoginVista extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel2.setText("USARNAME");
 
+        UsuarioPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         UsuarioPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsuarioPrincipalActionPerformed(evt);
-            }
-        });
-
-        ContrasenaPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContrasenaPrincipalActionPerformed(evt);
             }
         });
 
@@ -57,6 +53,13 @@ public class LoginVista extends javax.swing.JFrame {
         jLabel3.setText("PASSWORD");
 
         BtnLogin.setText("login");
+        BtnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ContrasenaInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContrasenaInicioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,9 +78,9 @@ public class LoginVista extends javax.swing.JFrame {
                         .addComponent(BtnLogin))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(195, 195, 195)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ContrasenaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UsuarioPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(UsuarioPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                            .addComponent(ContrasenaInicio)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(233, 233, 233)
                         .addComponent(jLabel3)))
@@ -95,7 +98,7 @@ public class LoginVista extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ContrasenaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ContrasenaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(BtnLogin)
                 .addContainerGap(67, Short.MAX_VALUE))
@@ -108,9 +111,9 @@ public class LoginVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UsuarioPrincipalActionPerformed
 
-    private void ContrasenaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaPrincipalActionPerformed
+    private void ContrasenaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaInicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ContrasenaPrincipalActionPerformed
+    }//GEN-LAST:event_ContrasenaInicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,7 +158,7 @@ public class LoginVista extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BtnLogin;
-    public javax.swing.JTextField ContrasenaPrincipal;
+    public javax.swing.JPasswordField ContrasenaInicio;
     public javax.swing.JTextField UsuarioPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
