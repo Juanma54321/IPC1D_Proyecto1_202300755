@@ -24,18 +24,22 @@ public class ControladorLogin implements ActionListener {
         vista.setLocationRelativeTo(null);
     
     }
+    //Accion que realizara el boton login
     public void actionPerformed(ActionEvent e){
+        //obteniendo el usuario y la contraseña escritos
         modelo.setNombreUsuario(vista.UsuarioPrincipal.getText());
         modelo.setContrasena(vista.ContrasenaInicio.getText());
         
-        
-        if (modelo.ConfirmarInformacion(modelo.nombreUsuario, modelo.Contrasena)) {
+        //verificando que el usuario y la contraseña sean correctas
+        if (modelo.ConfirmarInformacion(modelo.nombreUsuario, modelo.Contrasena)){
+            //iniciado el controlador principal
+            UserVista view1= new UserVista();
+            ControladorPrincipal control1= new ControladorPrincipal(view1); 
+            control1.iniciarPrincipal();
+            view1.setVisible(true);
             vista.dispose();
-            UserVista vista2= new UserVista();
             
-            vista2.setTitle("Pagina Principal");
-            vista2.setLocationRelativeTo(null);
-            vista2.setVisible(true);
+        //mostrando error si no coinciden el nombre y la contraseña    
         }else{
             JOptionPane.showMessageDialog(vista,"Contraseña o Usuario Incorrecto","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
         }

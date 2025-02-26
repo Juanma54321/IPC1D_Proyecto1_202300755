@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/manum/Desktop/manuel/IPC1%20Lab/IPC1_Proyecto1_202300755/src/proyecto1/Interfaz.java</file>
-            <file>file:/C:/Users/manum/Desktop/manuel/IPC1%20Lab/IPC1_Proyecto1_202300755/src/proyecto1/Proyecto1.java</file>
+            <file>file:/C:/Users/manum/Desktop/manuel/IPC1%20Lab/IPC1_Proyecto1_202300755/src/Model/CrearUsuario.java</file>
+            <file>file:/C:/Users/manum/Desktop/manuel/IPC1%20Lab/IPC1_Proyecto1_202300755/src/Controller/ControladorLogin.java</file>
+            <file>file:/C:/Users/manum/Desktop/manuel/IPC1%20Lab/IPC1_Proyecto1_202300755/src/Controller/ControladorCrearUsuario.java</file>
         </group>
     </open-files>
 </project-private>

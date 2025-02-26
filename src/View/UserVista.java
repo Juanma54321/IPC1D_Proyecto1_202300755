@@ -4,6 +4,8 @@
  */
 package View;
 
+import Model.CrearUsuario;
+import Controller.ControladorCrearUsuario;
 /**
  *
  * @author manum
@@ -30,9 +32,9 @@ public class UserVista extends javax.swing.JFrame {
         btnCrear = new javax.swing.JButton();
         btnDepositos = new javax.swing.JButton();
         btnRetiros = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnBuscarCuentas = new javax.swing.JButton();
+        btnHistorial = new javax.swing.JButton();
+        btnGenerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -63,7 +65,7 @@ public class UserVista extends javax.swing.JFrame {
 
         btnCrear.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnCrear.setText("<html><center>Crear<br> Cuenta </center></html>");
-        btnCrear.setActionCommand("Registro de Usuario");
+        btnCrear.setActionCommand("Crear Cuenta");
         btnCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrear.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         btnCrear.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -77,7 +79,7 @@ public class UserVista extends javax.swing.JFrame {
 
         btnDepositos.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnDepositos.setText("<html>Depositos</html>");
-        btnDepositos.setActionCommand("Registro de Usuario");
+        btnDepositos.setActionCommand("Depositos");
         btnDepositos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDepositos.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         btnDepositos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -97,15 +99,18 @@ public class UserVista extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jButton1.setText("<html><center>Buscar Cuentas<br>Asociadas</center></html>");
+        btnBuscarCuentas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnBuscarCuentas.setText("<html><center>Buscar Cuentas<br>Asociadas</center></html>");
+        btnBuscarCuentas.setActionCommand("Buscar Cuentas");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jButton2.setText("<html><center>Historial de Transacciones</center></html>");
-        jButton2.setMargin(new java.awt.Insets(2, 6, 3, 12));
+        btnHistorial.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnHistorial.setText("<html><center>Historial de Transacciones</center></html>");
+        btnHistorial.setMargin(new java.awt.Insets(2, 6, 3, 12));
+        btnHistorial.setActionCommand("Historial");
 
-        jButton3.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jButton3.setText("<html><center>Generacion de Reportes</center></html>");
+        btnGenerar.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnGenerar.setText("<html><center>Generacion de Reportes</center></html>");
+        btnGenerar.setActionCommand("Generar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,11 +136,11 @@ public class UserVista extends javax.swing.JFrame {
                         .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(107, 107, 107)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -145,20 +150,20 @@ public class UserVista extends javax.swing.JFrame {
                 .addComponent(CajaAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRetiros, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton2))
+                    .addComponent(btnBuscarCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnHistorial))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -170,8 +175,7 @@ public class UserVista extends javax.swing.JFrame {
     }//GEN-LAST:event_CajaAyudaActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        CrearUsuarioVista vista3 = new CrearUsuarioVista();
-         vista3.setVisible(true);
+      
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
@@ -221,15 +225,17 @@ public class UserVista extends javax.swing.JFrame {
         });
     }
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CajaAyuda;
+    public javax.swing.JButton btnBuscarCuentas;
     public javax.swing.JButton btnCrear;
     public javax.swing.JButton btnDepositos;
+    public javax.swing.JButton btnGenerar;
+    public javax.swing.JButton btnHistorial;
     public javax.swing.JButton btnRegistro;
     public javax.swing.JButton btnRetiros;
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
