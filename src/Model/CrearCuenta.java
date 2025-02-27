@@ -3,15 +3,27 @@ package Model;
 import java.util.ArrayList;
 
 public class CrearCuenta {
-    private String Identificador = "D2D025";
+    private String Identificador;
     private int Saldo;
+    private Long CUI;
     private String Dueño;
-    public static ArrayList<String> cuentas = new ArrayList<>();
     private static int contador=0;
+    
+    //
+    public static ArrayList<CrearCuenta> cuentas = new ArrayList<>();
+    
     public String getIdentificador() {
         return Identificador;
     }
 
+    public String getDueño() {
+        return Dueño;
+    }
+
+    public void setDueño(String Dueño) {
+        this.Dueño = Dueño;
+    }
+    
     public void setIdentificador(String Identificador) {
         this.Identificador = Identificador;
     }
@@ -24,18 +36,27 @@ public class CrearCuenta {
         this.Saldo = Saldo;
     }
 
-    public String getDueño() {
-        return Dueño;
+    public Long getCUI() {
+        return CUI;
     }
 
-    public void setDueño(String Dueño) {
-        this.Dueño = Dueño;
+    public void setCUI(Long CUI) {
+        this.CUI = CUI;
     }
 
-    public ArrayList GuardarCuenta(){
+    
+    //metodo para asignarle a cada CUI un identificador unico
+    public ArrayList GuardarCuenta(long cui,String dueño){
         contador++;
-        this.Identificador= Identificador + String.valueOf(contador);
-        cuentas.add(this.Identificador);
+        CrearCuenta user =new CrearCuenta();
+        
+        user.CUI=cui;
+        user.Saldo=0;
+        user.Dueño=dueño;
+        user.Identificador="D2D025"+dueño.length()+contador;
+        
+        cuentas.add(user);
+        
         return cuentas;
     }
     

@@ -5,9 +5,11 @@ import Model.CrearUsuario;
 import View.CrearCuentaVista;
 import View.CrearUsuarioVista;
 import View.UserVista;
+import View.BuscarCuentasVista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+
 
 
 
@@ -24,6 +26,8 @@ public class ControladorPrincipal implements ActionListener {
         this.vista.btnDepositos.addActionListener(this);
         this.vista.btnRegistro.addActionListener(this);
         this.vista.btnRetiros.addActionListener(this);
+        this.vista.btnBuscarCuentas.addActionListener(this);
+        this.vista.btnHistorial.addActionListener(this);
     }
     //metodo para iniciar la pestaña principal
     public void iniciarPrincipal(){
@@ -36,6 +40,8 @@ public class ControladorPrincipal implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String opcion;
         opcion = e.getActionCommand();
+        
+        //borrar este control 
         System.out.println(opcion);
         
         //navegador entre los botones
@@ -55,14 +61,41 @@ public class ControladorPrincipal implements ActionListener {
                 }
             break;    
             
+            //accion del boton Crear Cuenta
             case ("Crear Cuenta"):
-                CrearCuenta model2= new CrearCuenta();
-                CrearCuentaVista view2 = new CrearCuentaVista();
-                
-                ControladorCrearCuenta control2 = new ControladorCrearCuenta(model2,view2);
-                control2.InicializarCuenta();
-                view2.setVisible(true);
+                //verificando que ya existan usuarios registrados
+                if(CrearUsuario.usuarios.size()!=0){
+                    CrearCuenta model2= new CrearCuenta();
+                    CrearCuentaVista view2 = new CrearCuentaVista();
+
+                    ControladorCrearCuenta control2 = new ControladorCrearCuenta(model2,view2);
+                    control2.Actualizar();
+                    control2.InicializarCuenta();
+                }else{
+                    JOptionPane.showMessageDialog(vista,"No Existen Usuarios Registrados","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                }
             break;
+            
+            //accion del boton Retiros
+            case ("Retiros"):
+                
+                
+                
+                
+            break;
+            
+            case("Buscar Cuentas"):
+                if(CrearCuenta.cuentas.size()!=0){
+                    BuscarCuentasVista view4 = new BuscarCuentasVista();
+                    
+                    ControladorBuscar control3 = new ControladorBuscar(view4);
+                    control3.RefrescarTabla();
+                    control3.IniciarBuscar();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(vista,"No Existen Usuarios Registrados","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                }
+                
                 
         }
         

@@ -34,7 +34,7 @@ public class CrearUsuario {
         this.ApellidoCliente = ApellidoCliente;
     }
     
-   //metodo para registrar Usuarios dentro de un arralyst
+   //metodo para registrar Usuarios dentro de un arraylist
    public ArrayList GuardarUsuario(long cui, String nombre, String apellido){
        
        CrearUsuario user= new CrearUsuario();

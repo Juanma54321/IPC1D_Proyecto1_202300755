@@ -102,15 +102,30 @@ public class UserVista extends javax.swing.JFrame {
         btnBuscarCuentas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnBuscarCuentas.setText("<html><center>Buscar Cuentas<br>Asociadas</center></html>");
         btnBuscarCuentas.setActionCommand("Buscar Cuentas");
+        btnBuscarCuentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCuentasActionPerformed(evt);
+            }
+        });
 
         btnHistorial.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnHistorial.setText("<html><center>Historial de Transacciones</center></html>");
         btnHistorial.setMargin(new java.awt.Insets(2, 6, 3, 12));
         btnHistorial.setActionCommand("Historial");
+        btnHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialActionPerformed(evt);
+            }
+        });
 
         btnGenerar.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnGenerar.setText("<html><center>Generacion de Reportes</center></html>");
         btnGenerar.setActionCommand("Generar");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,6 +204,18 @@ public class UserVista extends javax.swing.JFrame {
     private void btnRetirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRetirosActionPerformed
+
+    private void btnBuscarCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCuentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCuentasActionPerformed
+
+    private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHistorialActionPerformed
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenerarActionPerformed
 
     /**
      * @param args the command line arguments
