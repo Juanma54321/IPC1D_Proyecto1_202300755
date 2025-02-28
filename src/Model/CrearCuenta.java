@@ -9,7 +9,7 @@ public class CrearCuenta {
     private String Dueño;
     private static int contador=0;
     
-    //
+    //array donde estaran todas las cuentas
     public static ArrayList<CrearCuenta> cuentas = new ArrayList<>();
     
     public String getIdentificador() {

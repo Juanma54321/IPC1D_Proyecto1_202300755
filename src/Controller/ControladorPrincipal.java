@@ -1,15 +1,24 @@
 
 package Controller;
+
 import Model.CrearCuenta;
 import Model.CrearUsuario;
+import Model.Saldo;
+
 import View.CrearCuentaVista;
 import View.CrearUsuarioVista;
 import View.UserVista;
 import View.BuscarCuentasVista;
+import View.DepositosVista;
+import View.RetirosVista;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
+
+import static Model.CrearUsuario.usuarios;
+import static Model.CrearCuenta.cuentas;
 
 
 
@@ -43,13 +52,16 @@ public class ControladorPrincipal implements ActionListener {
         
         //borrar este control 
         System.out.println(opcion);
-        
+        for (int i = 0; i < cuentas.size(); i++) {
+            
+        System.out.println(cuentas.get(i).getDueño()+" - Q"+cuentas.get(i).getSaldo());
+        }
         //navegador entre los botones
         switch(opcion){
             
             //accion del boton Registro de Usuario
             case ("Registro de Usuario"):
-                if(CrearUsuario.usuarios.size()<6){
+                if(usuarios.size()<6){
                 CrearUsuarioVista view1 = new CrearUsuarioVista();
                 CrearUsuario model1 = new CrearUsuario();
                 
@@ -64,7 +76,7 @@ public class ControladorPrincipal implements ActionListener {
             //accion del boton Crear Cuenta
             case ("Crear Cuenta"):
                 //verificando que ya existan usuarios registrados
-                if(CrearUsuario.usuarios.size()!=0){
+                if(usuarios.size()!=0){
                     CrearCuenta model2= new CrearCuenta();
                     CrearCuentaVista view2 = new CrearCuentaVista();
 
@@ -78,11 +90,34 @@ public class ControladorPrincipal implements ActionListener {
             
             //accion del boton Retiros
             case ("Retiros"):
+                if(cuentas.size()!=0){
+                    Saldo model4=new Saldo();
+                    RetirosVista view4=new RetirosVista();
+                    
+                    ControladorRetiros control4 = new ControladorRetiros(model4,view4);
+                    control4.ActualizarRetiros();
+                    control4.IniciarRetiro();
+                }else{
+                    JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                }
                 
+            break;
+            //accion del boton Depositos
+            case ("Depositos"):
+                if(cuentas.size()!=0){
+                    Saldo model3= new Saldo();
+                    DepositosVista view3 = new DepositosVista();                
+                    ControladorDepositos control3 =new ControladorDepositos(model3,view3);
                 
+                    control3.ActualizarDeposito();
+                    control3.IniciarDeposito();
+                }else{
+                    JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                }
                 
                 
             break;
+            
             
             case("Buscar Cuentas"):
                 if(CrearCuenta.cuentas.size()!=0){
@@ -93,7 +128,7 @@ public class ControladorPrincipal implements ActionListener {
                     control3.IniciarBuscar();
                     
                 }else{
-                    JOptionPane.showMessageDialog(vista,"No Existen Usuarios Registrados","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
                 }
                 
                 
@@ -102,4 +137,5 @@ public class ControladorPrincipal implements ActionListener {
         
     
     }
+    
 }

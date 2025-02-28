@@ -36,7 +36,7 @@ public class ControladorCrearCuenta implements ActionListener{
         int Selection;
         
         Selection=view.btnCliente.getSelectedIndex();
-        model.GuardarCuenta(CrearUsuario.usuarios.get(Selection).getCUI() ,CrearUsuario.usuarios.get(Selection).getNombreCliente());
+        model.GuardarCuenta(CrearUsuario.usuarios.get(Selection).getCUI() ,CrearUsuario.usuarios.get(Selection).getNombreCliente()+" "+ CrearUsuario.usuarios.get(Selection).getApellidoCliente());
     
         JOptionPane.showMessageDialog(view,"Se Creo Correctamente una cuenta para: "+ CrearUsuario.usuarios.get(Selection).getNombreCliente()+" "+CrearUsuario.usuarios.get(Selection).getApellidoCliente(),"Inf.",JOptionPane.INFORMATION_MESSAGE);
         view.dispose();

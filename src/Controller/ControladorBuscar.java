@@ -41,6 +41,7 @@ public class ControladorBuscar implements ActionListener {
     //metodo para refrescar la tabla de cuentas
     public void RegrescarTablaCuentas(){
         int contador=0;
+        vista.TablaCuentas.removeAll();
         
         if(cuentas.size()!=0){
             for (int i = 0; i < cuentas.size(); i++) {
@@ -56,10 +57,9 @@ public class ControladorBuscar implements ActionListener {
         }
         if(contador==0){
             for (int i = 0; i < cuentas.size(); i++) {
-                this.vista.TablaCuentas.setValueAt("0", i, 0);
+                this.vista.TablaCuentas.setValueAt(" ", i, 0);
             }
-            JOptionPane.showMessageDialog(vista,"No existen Cuentas Para el Usuario Selecionado","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
-        }
+            }
     }
     
     //metodo para iniciar la ventana Buscar cuentas
@@ -68,7 +68,7 @@ public class ControladorBuscar implements ActionListener {
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
-    
+    //accion del boton Buscar
     public void actionPerformed(ActionEvent f){
         ControladorBuscar control = new ControladorBuscar(vista);
         control.RegrescarTablaCuentas();
