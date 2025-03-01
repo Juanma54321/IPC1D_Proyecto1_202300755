@@ -11,6 +11,7 @@ import View.UserVista;
 import View.BuscarCuentasVista;
 import View.DepositosVista;
 import View.RetirosVista;
+import View.HistorialVista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,16 +47,11 @@ public class ControladorPrincipal implements ActionListener {
     
     
     
+    @Override
     public void actionPerformed(ActionEvent e) {
         String opcion;
         opcion = e.getActionCommand();
         
-        //borrar este control 
-        System.out.println(opcion);
-        for (int i = 0; i < cuentas.size(); i++) {
-            
-        System.out.println(cuentas.get(i).getDueño()+" - Q"+cuentas.get(i).getSaldo());
-        }
         //navegador entre los botones
         switch(opcion){
             
@@ -93,8 +89,9 @@ public class ControladorPrincipal implements ActionListener {
                 if(cuentas.size()!=0){
                     Saldo model4=new Saldo();
                     RetirosVista view4=new RetirosVista();
+                    CrearCuenta model5=new CrearCuenta();
                     
-                    ControladorRetiros control4 = new ControladorRetiros(model4,view4);
+                    ControladorRetiros control4 = new ControladorRetiros(model4,view4,model5);
                     control4.ActualizarRetiros();
                     control4.IniciarRetiro();
                 }else{
@@ -104,21 +101,20 @@ public class ControladorPrincipal implements ActionListener {
             break;
             //accion del boton Depositos
             case ("Depositos"):
-                if(cuentas.size()!=0){
+                if(!cuentas.isEmpty()){
                     Saldo model3= new Saldo();
-                    DepositosVista view3 = new DepositosVista();                
-                    ControladorDepositos control3 =new ControladorDepositos(model3,view3);
+                    DepositosVista view3 = new DepositosVista();  
+                    CrearCuenta model4= new CrearCuenta();
+                    ControladorDepositos control3 =new ControladorDepositos(model3,view3,model4);
                 
                     control3.ActualizarDeposito();
                     control3.IniciarDeposito();
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
-                }
-                
-                
+                }     
             break;
             
-            
+            //accion del boton Buscar Cuentas
             case("Buscar Cuentas"):
                 if(CrearCuenta.cuentas.size()!=0){
                     BuscarCuentasVista view4 = new BuscarCuentasVista();
@@ -130,8 +126,25 @@ public class ControladorPrincipal implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
                 }
+            break;
+                
+            //accion del boton Historial de transacciones
+            case ("Historial"):
+                if(CrearCuenta.cuentas.size()!=0){
+                    HistorialVista view4 = new HistorialVista();
+                    CrearCuenta model1 = new CrearCuenta();
+                    
+                    ControladorHistorial control = new ControladorHistorial(model1,view4);
+                    
+                    control.IniciarHistorial();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                }
                 
                 
+                
+            break;    
         }
         
         

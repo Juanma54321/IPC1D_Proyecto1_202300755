@@ -1,13 +1,13 @@
 
 package Controller;
 import View.BuscarCuentasVista;
-import Model.CrearCuenta;
 import Model.CrearUsuario;
 import static Model.CrearUsuario.usuarios;
 import static Model.CrearCuenta.cuentas;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+
 
 
 
@@ -41,25 +41,23 @@ public class ControladorBuscar implements ActionListener {
     //metodo para refrescar la tabla de cuentas
     public void RegrescarTablaCuentas(){
         int contador=0;
-        vista.TablaCuentas.removeAll();
+        for (int i = 0; i < 25; i++) {
+                this.vista.TablaCuentas.setValueAt(" ", i, 0);
+            }
         
         if(cuentas.size()!=0){
             for (int i = 0; i < cuentas.size(); i++) {
                 if(Long.parseLong(this.vista.CajaCUI.getText())==cuentas.get(i).getCUI()){
+                    
+                    String user;
             
-                    CrearCuenta model=new CrearCuenta();
-            
-                    model=cuentas.get(i);
-                    this.vista.TablaCuentas.setValueAt(model.getIdentificador(), contador,0);
+                    user=cuentas.get(i).getIdentificador();
+                    this.vista.TablaCuentas.setValueAt(user, contador,0);
                     contador++;
                 }   
             }
         }
-        if(contador==0){
-            for (int i = 0; i < cuentas.size(); i++) {
-                this.vista.TablaCuentas.setValueAt(" ", i, 0);
-            }
-            }
+        
     }
     
     //metodo para iniciar la ventana Buscar cuentas
@@ -70,6 +68,7 @@ public class ControladorBuscar implements ActionListener {
     }
     //accion del boton Buscar
     public void actionPerformed(ActionEvent f){
+        
         ControladorBuscar control = new ControladorBuscar(vista);
         control.RegrescarTablaCuentas();
     }

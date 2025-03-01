@@ -3,17 +3,21 @@ package Controller;
 import View.DepositosVista;
 import Model.Saldo;
 import static Model.CrearCuenta.cuentas;
+import Model.CrearCuenta;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 public class ControladorDepositos implements ActionListener{
-    Saldo model;
-    DepositosVista view;
+    private Saldo model;
+    private DepositosVista view;
+    private CrearCuenta model2;
     
     //generando constructores
-    public ControladorDepositos(Saldo model, DepositosVista view) {
+    public ControladorDepositos(Saldo model, DepositosVista view, CrearCuenta model2) {
         this.model = model;
+        this.model2=model2;
         this.view = view;
         this.view.btnAceptar.addActionListener(this);
     }
@@ -30,20 +34,26 @@ public class ControladorDepositos implements ActionListener{
         view.CajaCuenta.removeAllItems();
         
         for (int i = 0; i < cuentas.size(); i++) {
-            view.CajaCuenta.addItem(cuentas.get(i).getIdentificador()+" - "+ cuentas.get(i).getDueño());
+            view.CajaCuenta.addItem(cuentas.get(i).getIdentificador()+" - "+ cuentas.get(i).getNombre()+" "+cuentas.get(i).getApellido());
         }
     }
     
     //accion que realizara el boton Aceptar
     public void actionPerformed(ActionEvent e) {
+        float efectivo= Integer.parseInt(view.CajaMonto.getText());
+        int contador = view.CajaCuenta.getSelectedIndex();
         
-        if(Integer.parseInt(view.CajaMonto.getText())>0){
-            model.Deposito(Integer.parseInt(view.CajaMonto.getText()),cuentas.get(view.CajaCuenta.getSelectedIndex()).getIdentificador());
+        if(efectivo>0 && cuentas.get(contador).getTransaccion().size()<=24){
+            
+            model.Deposito(efectivo,cuentas.get(contador).getIdentificador());
             JOptionPane.showMessageDialog(view,"Deposito hecho con Exito","Inf.",JOptionPane.INFORMATION_MESSAGE);
             view.dispose();
         //mostrando error
-        }else{
+        }else if(efectivo<=0){
             JOptionPane.showMessageDialog(view,"Cantidad no valida","ERROR",JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(view,"Cantidad max de transacciones para la cuenta","error", JOptionPane.ERROR_MESSAGE);
+        
         }
     }
 }

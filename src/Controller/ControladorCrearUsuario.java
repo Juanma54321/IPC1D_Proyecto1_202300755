@@ -1,11 +1,13 @@
 
 package Controller;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+
 import Model.CrearUsuario;
 import static Model.CrearUsuario.usuarios;
 import View.CrearUsuarioVista;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 public class ControladorCrearUsuario implements ActionListener  {
    

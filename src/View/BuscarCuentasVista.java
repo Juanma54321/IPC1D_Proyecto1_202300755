@@ -63,6 +63,7 @@ public class BuscarCuentasVista extends javax.swing.JFrame {
                 "CUI", "Nombre", "Apellido"
             }
         ));
+        Tabla1.setDragEnabled(true);
         Tabla1.setShowGrid(true);
         jScrollPane1.setViewportView(Tabla1);
 

@@ -4,6 +4,7 @@ package Controller;
 import Model.CrearCuenta;
 import Model.CrearUsuario;
 import View.CrearCuentaVista;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -36,7 +37,7 @@ public class ControladorCrearCuenta implements ActionListener{
         int Selection;
         
         Selection=view.btnCliente.getSelectedIndex();
-        model.GuardarCuenta(CrearUsuario.usuarios.get(Selection).getCUI() ,CrearUsuario.usuarios.get(Selection).getNombreCliente()+" "+ CrearUsuario.usuarios.get(Selection).getApellidoCliente());
+        model.GuardarCuenta(CrearUsuario.usuarios.get(Selection).getCUI() ,CrearUsuario.usuarios.get(Selection).getNombreCliente(), CrearUsuario.usuarios.get(Selection).getApellidoCliente());
     
         JOptionPane.showMessageDialog(view,"Se Creo Correctamente una cuenta para: "+ CrearUsuario.usuarios.get(Selection).getNombreCliente()+" "+CrearUsuario.usuarios.get(Selection).getApellidoCliente(),"Inf.",JOptionPane.INFORMATION_MESSAGE);
         view.dispose();
