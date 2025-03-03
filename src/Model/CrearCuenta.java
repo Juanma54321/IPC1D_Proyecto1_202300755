@@ -22,7 +22,9 @@ public class CrearCuenta {
 
     //array donde estaran todas las cuentas
     public static ArrayList<CrearCuenta> cuentas = new ArrayList<>();
-
+    
+    
+    //set and get de cada atributo de la clase
     public String getNombre() {
         return Nombre;
     }
@@ -87,8 +89,6 @@ public class CrearCuenta {
         CrearCuenta.cuentas = cuentas;
     }
     
-    
-    
     public String getIdentificador() {
         return Identificador;
     }
@@ -117,26 +117,25 @@ public class CrearCuenta {
     public void Registro(String accion, String identificador,Float cantidad){
         for (int i = 0; i < cuentas.size(); i++) {
             if (cuentas.get(i).getIdentificador().equals(identificador)) {
-                
+                //variable usada para el ID de cada transaccion
                 contador2++;
-                 
+                //generando las variables para obtener el tiempo 
                 Calendar Fecha =  Calendar.getInstance();
                 Calendar Hora =  Calendar.getInstance();
-    
+                //variables que almacenaran cada dato del tiempo
                 int hora, minutos,dia,mes,ano;
-        
+                //asignando cada instante en su respectiva variable
                 hora=Hora.get(Calendar.HOUR_OF_DAY);
                 minutos=Hora.get(Calendar.MINUTE);
-
                 dia=Fecha.get(Calendar.DAY_OF_MONTH);
-                mes=Fecha.get(Calendar.MONTH);
+                mes=Fecha.get(Calendar.MONTH)+1;
                 ano=Fecha.get(Calendar.YEAR);
-
+                //concatenando todo en una variable
                 String momento;
                 momento=String.valueOf(dia)+"/"+String.valueOf(mes)+"/"+String.valueOf(ano)+"  "+String.valueOf(hora)+":"+String.valueOf(minutos);
-
+                //agregando el tiempo al arraylist de hora
                 cuentas.get(i).getHora().add(momento);
-                
+                //guardando que tipo de transaccion fue y la cantidad en sus respectivos arraylist
                 cuentas.get(i).getTransaccion().add(accion);
                 cuentas.get(i).getEfectivo().add(cantidad);
                 cuentas.get(i).getID().add(String.valueOf(contador2));
@@ -153,7 +152,7 @@ public class CrearCuenta {
         
         contador++;
         CrearCuenta user =new CrearCuenta();
-        
+        //guardando todos los datos necesarios para una cuenta 
         user.Transaccion=new ArrayList();
         user.Efectivo=new ArrayList();
         user.ID=new ArrayList();
@@ -162,8 +161,9 @@ public class CrearCuenta {
         user.Saldo=0;
         user.Nombre=nombre;
         user.Apellido=apellido;
+        //codigo unico para cuenta 
         user.Identificador="D2D025"+(nombre+apellido).length()+contador;
-        
+        //agregando la nueva cuenta al arraylist
         cuentas.add(user);
         
         return cuentas;

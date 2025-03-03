@@ -11,9 +11,11 @@ public class InformacionLogin {
     String user1="AdministradorIPC1D";
     String password1="ipc1D1s2025";
     */
+    //contraseña del loging
     String user1="Juanma";
     String password1="nolac123";
     
+    //set and get de las cualidades de la clase
     public String getContrasena() {
         return Contrasena;
     }
@@ -30,6 +32,7 @@ public class InformacionLogin {
         this.nombreUsuario = nombreUsuario;
     }
     
+    //metodo para verificar la contraseña y el usuario del loging
     public boolean ConfirmarInformacion(String nombre, String contrasena){
          return nombre.equals(user1) && contrasena.equals(password1);
     }

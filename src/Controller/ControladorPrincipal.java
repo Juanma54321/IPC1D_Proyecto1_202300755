@@ -4,6 +4,7 @@ package Controller;
 import Model.CrearCuenta;
 import Model.CrearUsuario;
 import Model.Saldo;
+import Model.Registros;
 
 import View.CrearCuentaVista;
 import View.CrearUsuarioVista;
@@ -12,6 +13,7 @@ import View.BuscarCuentasVista;
 import View.DepositosVista;
 import View.RetirosVista;
 import View.HistorialVista;
+import View.ReporteVista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +40,7 @@ public class ControladorPrincipal implements ActionListener {
         this.vista.btnRetiros.addActionListener(this);
         this.vista.btnBuscarCuentas.addActionListener(this);
         this.vista.btnHistorial.addActionListener(this);
+        this.vista.btnGenerar.addActionListener(this);
     }
     //metodo para iniciar la pestaña principal
     public void iniciarPrincipal(){
@@ -144,7 +147,22 @@ public class ControladorPrincipal implements ActionListener {
                 
                 
                 
-            break;    
+            break; 
+            
+            case("Generar"):
+                if (!cuentas.isEmpty()) {
+                    Registros model = new Registros();
+                    ReporteVista view = new ReporteVista();
+                    
+                    ControladorGenerarReporte control = new  ControladorGenerarReporte (view, model);
+                    
+                    control.IngresarUsuarios();
+                    control.IniciarRegistro();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(vista, "No Existen Cuentas Asociadas","AVERTENCIA ", JOptionPane.INFORMATION_MESSAGE);
+                }
+            break;
         }
         
         

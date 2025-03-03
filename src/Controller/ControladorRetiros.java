@@ -39,7 +39,7 @@ public class ControladorRetiros implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent e){
-        float efectivo = Integer.parseInt(view.CajaMonto.getText());
+        float efectivo = Float.parseFloat(view.CajaMonto.getText());
         int contador = view.CajaCuenta.getSelectedIndex();
         
         if(efectivo>0 && cuentas.get(contador).getSaldo()>=efectivo && cuentas.get(contador).getTransaccion().size()<=24){

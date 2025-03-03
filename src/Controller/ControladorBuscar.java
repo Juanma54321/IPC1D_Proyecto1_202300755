@@ -69,7 +69,6 @@ public class ControladorBuscar implements ActionListener {
     //accion del boton Buscar
     public void actionPerformed(ActionEvent f){
         
-        ControladorBuscar control = new ControladorBuscar(vista);
-        control.RegrescarTablaCuentas();
+       RegrescarTablaCuentas();
     }
 }

@@ -7,9 +7,11 @@ public class CrearUsuario {
     public long CUI;
     private String NombreCliente;
     private String ApellidoCliente;
-    
+    //arraylist donde se guardaran los usuarios 
     public static ArrayList<CrearUsuario> usuarios = new ArrayList<>();
     
+    
+    //set and get de cada atributo de la clase
     public long getCUI() {
         return CUI;
     }

@@ -48,15 +48,6 @@ public class ControladorCrearUsuario implements ActionListener  {
             JOptionPane.showMessageDialog(vista,"El CUI no es valido","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
         }
         
-        
-        
-        //borrar este control
-        for (int i = 0; i < usuarios.size(); i++) {
-           long n=usuarios.get(i).getCUI();
-            System.out.println(n);
-        }
-       
-        
     }
 
     

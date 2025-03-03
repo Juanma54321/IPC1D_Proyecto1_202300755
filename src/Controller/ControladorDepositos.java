@@ -40,7 +40,7 @@ public class ControladorDepositos implements ActionListener{
     
     //accion que realizara el boton Aceptar
     public void actionPerformed(ActionEvent e) {
-        float efectivo= Integer.parseInt(view.CajaMonto.getText());
+        float efectivo= Float.parseFloat(view.CajaMonto.getText());
         int contador = view.CajaCuenta.getSelectedIndex();
         
         if(efectivo>0 && cuentas.get(contador).getTransaccion().size()<=24){

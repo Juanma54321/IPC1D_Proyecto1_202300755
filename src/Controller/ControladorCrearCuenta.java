@@ -42,39 +42,5 @@ public class ControladorCrearCuenta implements ActionListener{
         JOptionPane.showMessageDialog(view,"Se Creo Correctamente una cuenta para: "+ CrearUsuario.usuarios.get(Selection).getNombreCliente()+" "+CrearUsuario.usuarios.get(Selection).getApellidoCliente(),"Inf.",JOptionPane.INFORMATION_MESSAGE);
         view.dispose();
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        //borrar este control
-        System.out.println("El Usuario "+ CrearUsuario.usuarios.get(Selection).getNombreCliente() + " tiene estas cuentas");
-        for (int i = 0; i <CrearCuenta.cuentas.size(); i++) {
-            
-            if (CrearUsuario.usuarios.get(Selection).getCUI() == CrearCuenta.cuentas.get(i).getCUI()) {
-                System.out.println(CrearCuenta.cuentas.get(i).getCUI() +" "+ CrearCuenta.cuentas.get(i).getIdentificador());
-            }
-            
-        }
-        
-    
-    }
-        
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }    
 }
