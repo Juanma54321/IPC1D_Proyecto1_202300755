@@ -4,7 +4,7 @@ package Model;
 
 public class InformacionLogin {
     public String Contrasena;
-    public String nombreUsuario;
+    public static String nombreUsuario;
     public boolean confirmacion;
     
    /*

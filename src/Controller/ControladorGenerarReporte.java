@@ -3,6 +3,7 @@ package Controller;
 import static Model.CrearCuenta.cuentas;
 import static Model.CrearUsuario.usuarios;
 import Model.CrearCuenta;
+import static Model.InformacionLogin.nombreUsuario;
 import Model.Registros;
 import View.ReporteVista;
 
@@ -124,7 +125,7 @@ public class ControladorGenerarReporte implements ActionListener {
                 }catch(DocumentException | IOException f){
                     f.printStackTrace();
                 }
-            
+               
             break;
             
             //accion del boton Historial de Depositos
@@ -250,7 +251,9 @@ public class ControladorGenerarReporte implements ActionListener {
                 }
             break;    
         }
-        
+        //registrando la accion
+        System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Generacion de reporte - Resultado: Exitoso - Detalles: reporte generado para el usuario con CUI: "+view.cajaCUI.getText());
+       
         
     }
     

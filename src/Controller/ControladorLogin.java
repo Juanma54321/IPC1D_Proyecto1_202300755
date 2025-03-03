@@ -36,13 +36,21 @@ public class ControladorLogin implements ActionListener {
             //iniciado el controlador principal
             UserVista view1= new UserVista();
             ControladorPrincipal control1= new ControladorPrincipal(view1); 
+            control1.ActualizarAyuda();
             control1.iniciarPrincipal();
-            view1.setVisible(true);
             vista.dispose();
+            
+            //registrando la accion 
+            System.out.println(control1.HoraAccion()+" Usuario:"+modelo.nombreUsuario+" - Accion: inicio de sesion - Resultado: Exito - Detalles: Sesion iniciada correctamente");
             
         //mostrando error si no coinciden el nombre y la contraseña    
         }else{
+            UserVista view1= new UserVista();
+            ControladorPrincipal control1= new ControladorPrincipal(view1); 
             JOptionPane.showMessageDialog(vista,"Contraseña o Usuario Incorrecto","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+            //registrando la accion 
+            System.out.println(control1.HoraAccion()+" Usuario:"+modelo.nombreUsuario+" - Accion: inicio de sesion - Resultado: Error - Detalles: usuario o contraseña incorrectos");
+            
         }
         
     }

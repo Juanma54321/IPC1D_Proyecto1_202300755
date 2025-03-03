@@ -4,16 +4,18 @@ import View.BuscarCuentasVista;
 import Model.CrearUsuario;
 import static Model.CrearUsuario.usuarios;
 import static Model.CrearCuenta.cuentas;
+import static Model.InformacionLogin.nombreUsuario;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 
 
 
 public class ControladorBuscar implements ActionListener {
-    private BuscarCuentasVista vista;
-    
+    private BuscarCuentasVista vista = new BuscarCuentasVista();
+    private static int contador;
     
     //generando contructor
     public ControladorBuscar(BuscarCuentasVista vista) {
@@ -40,7 +42,7 @@ public class ControladorBuscar implements ActionListener {
     
     //metodo para refrescar la tabla de cuentas
     public void RegrescarTablaCuentas(){
-        int contador=0;
+        contador=0;
         for (int i = 0; i < 25; i++) {
                 this.vista.TablaCuentas.setValueAt(" ", i, 0);
             }
@@ -57,7 +59,6 @@ public class ControladorBuscar implements ActionListener {
                 }   
             }
         }
-        
     }
     
     //metodo para iniciar la ventana Buscar cuentas
@@ -70,5 +71,15 @@ public class ControladorBuscar implements ActionListener {
     public void actionPerformed(ActionEvent f){
         
        RegrescarTablaCuentas();
+        if (contador!=0) {
+            //registrando la accion 
+            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Exitoso - Detalles: Cuentas encontradas para el CUI: "+this.vista.CajaCUI.getText());
+        }
+        if (contador==0) {
+            JOptionPane.showMessageDialog(vista,"No existen cuentas asociadas", "Error", JOptionPane.ERROR_MESSAGE);
+            //registrando la accion
+            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Error - Detalles: no existen cuentas para el CUI: "+this.vista.CajaCUI.getText());
+        }
+         
     }
 }

@@ -3,6 +3,8 @@ package Controller;
 
 import Model.CrearCuenta;
 import Model.CrearUsuario;
+import static Model.InformacionLogin.nombreUsuario;
+import static Model.CrearCuenta.cuentas;
 import View.CrearCuentaVista;
 
 import java.awt.event.ActionEvent;
@@ -12,6 +14,7 @@ import javax.swing.JOptionPane;
 public class ControladorCrearCuenta implements ActionListener{
     private CrearCuenta model;
     private CrearCuentaVista view;
+    private static byte contador=0;
 
     public ControladorCrearCuenta(CrearCuenta model, CrearCuentaVista view) {
         this.model = model;
@@ -41,6 +44,9 @@ public class ControladorCrearCuenta implements ActionListener{
     
         JOptionPane.showMessageDialog(view,"Se Creo Correctamente una cuenta para: "+ CrearUsuario.usuarios.get(Selection).getNombreCliente()+" "+CrearUsuario.usuarios.get(Selection).getApellidoCliente(),"Inf.",JOptionPane.INFORMATION_MESSAGE);
         view.dispose();
+        //registrando la accion 
+        System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Cuenta  - Resultado: Exitoso - Detalles: Cuenta Creada con el nuemero '"+cuentas.get(contador).getIdentificador()+"' saldo inicial: Q0.00");
+        contador++;    
         
     }    
 }

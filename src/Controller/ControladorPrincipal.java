@@ -14,6 +14,7 @@ import View.DepositosVista;
 import View.RetirosVista;
 import View.HistorialVista;
 import View.ReporteVista;
+import View.BitacoraVista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,12 +23,15 @@ import javax.swing.JOptionPane;
 
 import static Model.CrearUsuario.usuarios;
 import static Model.CrearCuenta.cuentas;
+import static Model.InformacionLogin.nombreUsuario;
+import java.util.Calendar;
 
 
 
 //precionar Boton Registrar Usuario
 public class ControladorPrincipal implements ActionListener {
     private UserVista vista;
+    public static String Hora;
     
     //constructor del controlador Principal
     public ControladorPrincipal(UserVista vista){
@@ -41,19 +45,48 @@ public class ControladorPrincipal implements ActionListener {
         this.vista.btnBuscarCuentas.addActionListener(this);
         this.vista.btnHistorial.addActionListener(this);
         this.vista.btnGenerar.addActionListener(this);
+        this.vista.CajaAyuda.addActionListener(this);
     }
     //metodo para iniciar la pestaña principal
     public void iniciarPrincipal(){
         vista.setTitle("Menu Principla (Modo Administrador)");
         vista.setLocationRelativeTo(null);
+        vista.setVisible(true);
+    }
+    //metodo para ingresar datos al combobox de ayuda
+    public void ActualizarAyuda(){
+        
+        vista.CajaAyuda.removeAllItems();
+        vista.CajaAyuda.addItem("Ayuda");
+        vista.CajaAyuda.addItem("Datos del Estudiante");
+        vista.CajaAyuda.addItem("Generacion de Bitacora");
     }
     
-    
+    //metodo para registar la hora de cualquier accion
+    public static String HoraAccion(){
+         //generando las variables para obtener el tiempo 
+                Calendar Fecha =  Calendar.getInstance();
+                Calendar Hora =  Calendar.getInstance();
+                //variables que almacenaran cada dato del tiempo
+                int hora, minutos,dia,mes,ano;
+                //asignando cada instante en su respectiva variable
+                hora=Hora.get(Calendar.HOUR_OF_DAY);
+                minutos=Hora.get(Calendar.MINUTE);
+                dia=Fecha.get(Calendar.DAY_OF_MONTH);
+                mes=Fecha.get(Calendar.MONTH)+1;
+                ano=Fecha.get(Calendar.YEAR);
+                //concatenando todo en una variable
+                String momento;
+                momento="["+String.valueOf(dia)+"/"+String.valueOf(mes)+"/"+String.valueOf(ano)+"  "+String.valueOf(hora)+":"+String.valueOf(minutos)+"]";
+                
+                return momento; 
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         String opcion;
         opcion = e.getActionCommand();
+        int index= vista.CajaAyuda.getSelectedIndex();
         
         //navegador entre los botones
         switch(opcion){
@@ -69,6 +102,9 @@ public class ControladorPrincipal implements ActionListener {
                 view1.setVisible(true);
                 }else{
                     JOptionPane.showMessageDialog(vista,"Numero maximo de usuarios alcanzado","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                    //registrando la accion 
+                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Registar Usuario - Resultado: Error - Detalles: Numero de Usuarios maximo alcanzados");
+                
                 }
             break;    
             
@@ -84,6 +120,9 @@ public class ControladorPrincipal implements ActionListener {
                     control2.InicializarCuenta();
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Usuarios Registrados","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                    //registrando la accion 
+                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Crear Cuenta - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                
                 }
             break;
             
@@ -99,6 +138,8 @@ public class ControladorPrincipal implements ActionListener {
                     control4.IniciarRetiro();
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                    //registrando la accion 
+                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiros - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
                 }
                 
             break;
@@ -114,6 +155,9 @@ public class ControladorPrincipal implements ActionListener {
                     control3.IniciarDeposito();
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                    //registrando la accion 
+                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Depositos - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                
                 }     
             break;
             
@@ -128,6 +172,9 @@ public class ControladorPrincipal implements ActionListener {
                     
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                    //registrando la accion 
+                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                
                 }
             break;
                 
@@ -143,12 +190,11 @@ public class ControladorPrincipal implements ActionListener {
                     
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
+                    //registrando la accion 
+                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Acceder al Historial - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
                 }
-                
-                
-                
             break; 
-            
+            //accion del boton Generar reporte
             case("Generar"):
                 if (!cuentas.isEmpty()) {
                     Registros model = new Registros();
@@ -161,10 +207,24 @@ public class ControladorPrincipal implements ActionListener {
                     
                 }else{
                     JOptionPane.showMessageDialog(vista, "No Existen Cuentas Asociadas","AVERTENCIA ", JOptionPane.INFORMATION_MESSAGE);
+                    //registrando la accion 
+                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Generar Reportes - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                
                 }
             break;
         }
-        
+        //opciones del combo box de ayuda
+        if (index==2) {
+            BitacoraVista view = new BitacoraVista();
+            view.setLocationRelativeTo(null);
+            view.setVisible(true);
+            index=0;
+            vista.CajaAyuda.setSelectedIndex(index);
+        }else if(index==1){
+            JOptionPane.showMessageDialog(vista,"Juan Manuel De León 202300755", "CREDITOS",JOptionPane.INFORMATION_MESSAGE);
+            index=0;
+            vista.CajaAyuda.setSelectedIndex(index);
+        }
         
     
     }
