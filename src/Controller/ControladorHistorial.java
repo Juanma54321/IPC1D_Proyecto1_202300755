@@ -2,6 +2,7 @@
 package Controller;
 import View.HistorialVista;
 import Model.CrearCuenta;
+import static Model.CrearCuenta.bitacora;
 import static Model.CrearCuenta.cuentas;
 import static Model.InformacionLogin.nombreUsuario;
 
@@ -102,7 +103,7 @@ public class ControladorHistorial implements ActionListener {
                 view.cajaNombre.setText(nombre);
                 view.cajaApellido.setText(apellido);
                 //registrando la accion
-                System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Generacion de reporte - Resultado: Exitoso - Detalles: Historial encontrado para la cuenta "+view.cajaIdentificador.getText());
+                bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Generacion de reporte - Resultado: Exitoso - Detalles: Historial encontrado para la cuenta "+view.cajaIdentificador.getText());
        
                 break;
             }

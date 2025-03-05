@@ -20,9 +20,9 @@ public class CrearCuenta {
     private ArrayList<String> ID;
     
 
-    //array donde estaran todas las cuentas
+    //array donde estaran todas las cuentas y la bitacora
     public static ArrayList<CrearCuenta> cuentas = new ArrayList<>();
-    
+    public static ArrayList<String> bitacora = new ArrayList<>();
     
     //set and get de cada atributo de la clase
     public String getNombre() {

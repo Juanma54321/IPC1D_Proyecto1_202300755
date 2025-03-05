@@ -2,6 +2,7 @@
 package Controller;
 
 import Model.CrearCuenta;
+import static Model.CrearCuenta.bitacora;
 import Model.CrearUsuario;
 import Model.Saldo;
 import Model.Registros;
@@ -103,7 +104,7 @@ public class ControladorPrincipal implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(vista,"Numero maximo de usuarios alcanzado","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
                     //registrando la accion 
-                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Registar Usuario - Resultado: Error - Detalles: Numero de Usuarios maximo alcanzados");
+                    bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Registar Usuario - Resultado: Error - Detalles: Numero de Usuarios maximo alcanzados");
                 
                 }
             break;    
@@ -121,7 +122,7 @@ public class ControladorPrincipal implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Usuarios Registrados","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
                     //registrando la accion 
-                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Crear Cuenta - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                    bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Crear Cuenta - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
                 
                 }
             break;
@@ -139,7 +140,7 @@ public class ControladorPrincipal implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
                     //registrando la accion 
-                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiros - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                    bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiros - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
                 }
                 
             break;
@@ -156,7 +157,7 @@ public class ControladorPrincipal implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
                     //registrando la accion 
-                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Depositos - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                    bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Depositos - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
                 
                 }     
             break;
@@ -173,7 +174,7 @@ public class ControladorPrincipal implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
                     //registrando la accion 
-                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                    bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
                 
                 }
             break;
@@ -191,7 +192,7 @@ public class ControladorPrincipal implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(vista,"No Existen Cuentas Asociadas","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
                     //registrando la accion 
-                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Acceder al Historial - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                    bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Acceder al Historial - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
                 }
             break; 
             //accion del boton Generar reporte
@@ -208,19 +209,25 @@ public class ControladorPrincipal implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(vista, "No Existen Cuentas Asociadas","AVERTENCIA ", JOptionPane.INFORMATION_MESSAGE);
                     //registrando la accion 
-                    System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Generar Reportes - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
+                    bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Generar Reportes - Resultado: Error - Detalles: No existen cuentas Asociadas para acceder");
                 
                 }
             break;
         }
         //opciones del combo box de ayuda
         if (index==2) {
+            //opcion de mostrar la bitacora
             BitacoraVista view = new BitacoraVista();
             view.setLocationRelativeTo(null);
             view.setVisible(true);
+            //ingresando los datos registrados hasta el momento de la bitacora
+            for (int i = 0; i < bitacora.size(); i++) {
+                view.TablaBitacora.setValueAt(bitacora.get(i), i, 0);
+            }
             index=0;
             vista.CajaAyuda.setSelectedIndex(index);
         }else if(index==1){
+            //mostrando datos del estudiante
             JOptionPane.showMessageDialog(vista,"Juan Manuel De León 202300755", "CREDITOS",JOptionPane.INFORMATION_MESSAGE);
             index=0;
             vista.CajaAyuda.setSelectedIndex(index);

@@ -4,6 +4,7 @@ import View.DepositosVista;
 import Model.Saldo;
 import static Model.CrearCuenta.cuentas;
 import Model.CrearCuenta;
+import static Model.CrearCuenta.bitacora;
 import static Model.InformacionLogin.nombreUsuario;
 
 import java.awt.event.ActionEvent;
@@ -50,18 +51,18 @@ public class ControladorDepositos implements ActionListener{
             JOptionPane.showMessageDialog(view,"Deposito hecho con Exito","Inf.",JOptionPane.INFORMATION_MESSAGE);
             view.dispose();
             //registrando la accion
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Deposito - Resultado: Exitoso - Detalles: Se deposito: Q"+view.CajaMonto.getText()+" a la cuenta: "+view.CajaCuenta.getItemAt(contador)+" saldo: Q" +cuentas.get(contador).getSaldo());  
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Deposito - Resultado: Exitoso - Detalles: Se deposito: Q"+view.CajaMonto.getText()+" a la cuenta: "+view.CajaCuenta.getItemAt(contador)+" saldo: Q" +cuentas.get(contador).getSaldo());  
             
         //cantidad ingresada invalida
         }else if(efectivo<=0){
             JOptionPane.showMessageDialog(view,"Cantidad no valida","ERROR",JOptionPane.ERROR_MESSAGE);
             //registrando la accion
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Deposito - Resultado: Error - Detalles: Cantidad de efectivo ingresada invalida");
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Deposito - Resultado: Error - Detalles: Cantidad de efectivo ingresada invalida");
        //cantidad max de transacciones alcanzado
         }else{
             JOptionPane.showMessageDialog(view,"Cantidad max de transacciones para la cuenta","error", JOptionPane.ERROR_MESSAGE);
             //registrando la accion
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Deposito - Resultado: Error - Detalles: Cuenta alcanzo su numero maximo de transacciones");
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Deposito - Resultado: Error - Detalles: Cuenta alcanzo su numero maximo de transacciones");
        
         }
     }

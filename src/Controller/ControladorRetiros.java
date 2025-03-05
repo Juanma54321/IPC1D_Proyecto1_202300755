@@ -1,6 +1,7 @@
 
 package Controller;
 import Model.CrearCuenta;
+import static Model.CrearCuenta.bitacora;
 import static Model.CrearCuenta.cuentas;
 import Model.Saldo;
 import static Model.InformacionLogin.nombreUsuario;
@@ -48,22 +49,22 @@ public class ControladorRetiros implements ActionListener {
             JOptionPane.showMessageDialog(view,"Retiro hecho con Exito","Inf.",JOptionPane.INFORMATION_MESSAGE);
             view.dispose();
             //registrando la accion
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Exitoso - Detalles: Se retiro: Q"+view.CajaMonto.getText()+" a la cuenta: "+view.CajaCuenta.getItemAt(contador)+" saldo: Q" +cuentas.get(contador).getSaldo());  
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Exitoso - Detalles: Se retiro: Q"+view.CajaMonto.getText()+" a la cuenta: "+view.CajaCuenta.getItemAt(contador)+" saldo: Q" +cuentas.get(contador).getSaldo());  
             
         //saldo Insuficiente para el retiro
         }else if(cuentas.get(contador).getSaldo()<=efectivo){
             JOptionPane.showMessageDialog(view,"Saldo Insuficiente","ERROR",JOptionPane.ERROR_MESSAGE);
             //registrando la accion
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Error - Detalles: saldo insuficiente, se intento retirar: Q"+view.CajaMonto.getText()+" a la cuenta: "+view.CajaCuenta.getItemAt(contador)+" saldo: Q" +cuentas.get(contador).getSaldo());  
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Error - Detalles: saldo insuficiente, se intento retirar: Q"+view.CajaMonto.getText()+" a la cuenta: "+view.CajaCuenta.getItemAt(contador)+" saldo: Q" +cuentas.get(contador).getSaldo());  
         //cantidad ingresada invalida  
         }else if(efectivo<=0){
             JOptionPane.showMessageDialog(view,"Cantidad invalida","error", JOptionPane.ERROR_MESSAGE);
             //registrando la accion
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Error - Detalles: cantidad ingresada invalida");
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Error - Detalles: cantidad ingresada invalida");
         }else{
             JOptionPane.showMessageDialog(view,"Cantidad max de transacciones para la cuenta","error", JOptionPane.ERROR_MESSAGE);
             //registrando la accion
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Error - Detalles: Cuenta alcanzo su numero maximo de transacciones");
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Error - Detalles: Cuenta alcanzo su numero maximo de transacciones");
         }
     }
     

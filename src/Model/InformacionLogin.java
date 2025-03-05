@@ -5,15 +5,11 @@ package Model;
 public class InformacionLogin {
     public String Contrasena;
     public static String nombreUsuario;
-    public boolean confirmacion;
-    
-   /*
-    String user1="AdministradorIPC1D";
-    String password1="ipc1D1s2025";
-    */
+    public boolean confirmacion;  
+  
     //contraseña del loging
-    String user1="Juanma";
-    String password1="nolac123";
+    String user1="AdministradorIPC1D";
+    String password1="ipc1D1s2025";  
     
     //set and get de las cualidades de la clase
     public String getContrasena() {

@@ -2,6 +2,7 @@
 package Controller;
 
 import Model.CrearCuenta;
+import static Model.CrearCuenta.bitacora;
 import Model.CrearUsuario;
 import static Model.InformacionLogin.nombreUsuario;
 import static Model.CrearCuenta.cuentas;
@@ -45,7 +46,7 @@ public class ControladorCrearCuenta implements ActionListener{
         JOptionPane.showMessageDialog(view,"Se Creo Correctamente una cuenta para: "+ CrearUsuario.usuarios.get(Selection).getNombreCliente()+" "+CrearUsuario.usuarios.get(Selection).getApellidoCliente(),"Inf.",JOptionPane.INFORMATION_MESSAGE);
         view.dispose();
         //registrando la accion 
-        System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Cuenta  - Resultado: Exitoso - Detalles: Cuenta Creada con el nuemero '"+cuentas.get(contador).getIdentificador()+"' saldo inicial: Q0.00");
+        bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Cuenta  - Resultado: Exitoso - Detalles: Cuenta Creada con el nuemero '"+cuentas.get(contador).getIdentificador()+"' saldo inicial: Q0.00");
         contador++;    
         
     }    

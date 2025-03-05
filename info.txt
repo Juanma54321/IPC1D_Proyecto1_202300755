@@ -1,4 +1,0 @@
-usuario temporal:
-	Juanma
-contraseña Temporal:
-	nolac123

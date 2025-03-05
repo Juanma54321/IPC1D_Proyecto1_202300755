@@ -1,5 +1,6 @@
 
 package Controller;
+import static Model.CrearCuenta.bitacora;
 import View.BuscarCuentasVista;
 import Model.CrearUsuario;
 import static Model.CrearUsuario.usuarios;
@@ -73,12 +74,12 @@ public class ControladorBuscar implements ActionListener {
        RegrescarTablaCuentas();
         if (contador!=0) {
             //registrando la accion 
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Exitoso - Detalles: Cuentas encontradas para el CUI: "+this.vista.CajaCUI.getText());
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Exitoso - Detalles: Cuentas encontradas para el CUI: "+this.vista.CajaCUI.getText());
         }
         if (contador==0) {
             JOptionPane.showMessageDialog(vista,"No existen cuentas asociadas", "Error", JOptionPane.ERROR_MESSAGE);
             //registrando la accion
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Error - Detalles: no existen cuentas para el CUI: "+this.vista.CajaCUI.getText());
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Buscar Cuentas Asociadas - Resultado: Error - Detalles: no existen cuentas para el CUI: "+this.vista.CajaCUI.getText());
         }
          
     }

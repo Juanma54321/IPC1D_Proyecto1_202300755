@@ -1,6 +1,7 @@
 
 package Controller;
 
+import static Model.CrearCuenta.bitacora;
 import Model.CrearUsuario;
 import static Model.InformacionLogin.nombreUsuario;
 import View.CrearUsuarioVista;
@@ -40,7 +41,7 @@ public class ControladorCrearUsuario implements ActionListener  {
             JOptionPane.showMessageDialog(vista,"Usuario Registrado con Exito","Inf.",JOptionPane.INFORMATION_MESSAGE);
             vista.dispose();
             //registrando la accion 
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Usuario - Resultado: Exitoso - Detalles: usuario "+modelo.getNombreCliente()+" "+modelo.getApellidoCliente()+" Registrado con exito");
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Usuario - Resultado: Exitoso - Detalles: usuario "+modelo.getNombreCliente()+" "+modelo.getApellidoCliente()+" Registrado con exito");
             
             
         }
@@ -48,13 +49,13 @@ public class ControladorCrearUsuario implements ActionListener  {
         else if(!modelo.VerificadorCUI(vista.txtCUI.getText())){
             JOptionPane.showMessageDialog(vista,"CUI ya registrado","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
             //registrando la accion 
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Usuario - Resultado: Error - Detalles: CUI ingresado ya existente");
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Usuario - Resultado: Error - Detalles: CUI ingresado ya existente");
         }
         //alerteando que ingresaron un caracter no valido para el cui
         else{
             JOptionPane.showMessageDialog(vista,"El CUI no es valido","AVERTENCIA",JOptionPane.WARNING_MESSAGE);
             //registrando la accion 
-            System.out.println(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Usuario - Resultado: Error - Detalles: CUI ingresado no valido");
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Creacion de Usuario - Resultado: Error - Detalles: CUI ingresado no valido");
         
         }
         
