@@ -4,6 +4,9 @@
  */
 package View;
 
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,95 +29,267 @@ public class LoginVista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
         UsuarioPrincipal = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         BtnLogin = new javax.swing.JButton();
         ContrasenaInicio = new javax.swing.JPasswordField();
+        TXTusuario = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel1.setText("LOGIN");
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 160, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel2.setText("USARNAME");
-
-        UsuarioPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        UsuarioPrincipal.setBackground(new java.awt.Color(0, 0, 0));
+        UsuarioPrincipal.setFont(new java.awt.Font("Yu Gothic Light", 0, 14)); // NOI18N
+        UsuarioPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        UsuarioPrincipal.setText("Ingrese su usuario");
+        UsuarioPrincipal.setBorder(null);
+        UsuarioPrincipal.setCaretColor(new java.awt.Color(255, 255, 255));
+        UsuarioPrincipal.setDisabledTextColor(new java.awt.Color(102, 102, 102));
+        UsuarioPrincipal.setEnabled(false);
+        UsuarioPrincipal.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                UsuarioPrincipalComponentRemoved(evt);
+            }
+        });
+        UsuarioPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsuarioPrincipalMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                UsuarioPrincipalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                UsuarioPrincipalMouseExited(evt);
+            }
+        });
         UsuarioPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsuarioPrincipalActionPerformed(evt);
             }
         });
+        UsuarioPrincipal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                UsuarioPrincipalKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                UsuarioPrincipalKeyTyped(evt);
+            }
+        });
+        jPanel3.add(UsuarioPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 20));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel3.setText("PASSWORD");
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        BtnLogin.setText("login");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 160, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 20));
+
+        BtnLogin.setBackground(new java.awt.Color(51, 102, 255));
+        BtnLogin.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        BtnLogin.setText("Iniciar");
+        BtnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         BtnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnLoginMouseExited(evt);
+            }
+        });
+        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLoginActionPerformed(evt);
+            }
+        });
+        jPanel3.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 110, 40));
 
+        ContrasenaInicio.setBackground(new java.awt.Color(0, 0, 0));
+        ContrasenaInicio.setForeground(new java.awt.Color(153, 153, 153));
+        ContrasenaInicio.setText("************");
+        ContrasenaInicio.setBorder(null);
+        ContrasenaInicio.setCaretColor(new java.awt.Color(255, 255, 255));
+        ContrasenaInicio.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        ContrasenaInicio.setEnabled(false);
+        ContrasenaInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ContrasenaInicioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ContrasenaInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ContrasenaInicioMouseExited(evt);
+            }
+        });
         ContrasenaInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContrasenaInicioActionPerformed(evt);
             }
         });
+        ContrasenaInicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ContrasenaInicioKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContrasenaInicioKeyTyped(evt);
+            }
+        });
+        jPanel3.add(ContrasenaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, 20));
+
+        TXTusuario.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        TXTusuario.setForeground(new java.awt.Color(255, 255, 255));
+        TXTusuario.setText("Usuario");
+        jPanel3.add(TXTusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 30));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 160, -1));
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Contraseña");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 100, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo2.png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(120, 183));
+        jLabel1.setMinimumSize(new java.awt.Dimension(100, 183));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 130, 160));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(BtnLogin))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(UsuarioPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                            .addComponent(ContrasenaInicio)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(233, 233, 233)
-                        .addComponent(jLabel3)))
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(UsuarioPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ContrasenaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(BtnLogin)
-                .addContainerGap(67, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void UsuarioPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioPrincipalActionPerformed
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_UsuarioPrincipalActionPerformed
+
+    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnLoginActionPerformed
+
+    private void UsuarioPrincipalComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_UsuarioPrincipalComponentRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioPrincipalComponentRemoved
+
+    private void UsuarioPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioPrincipalMouseClicked
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioPrincipalMouseClicked
+
+    private void UsuarioPrincipalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioPrincipalMouseExited
+        if(UsuarioPrincipal.getText().equals("")){
+            UsuarioPrincipal.setText("Ingrese su usuario");
+            UsuarioPrincipal.setEnabled(false);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioPrincipalMouseExited
+
+    private void UsuarioPrincipalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioPrincipalKeyTyped
+        if (UsuarioPrincipal.getText().equals("Ingrese su usuario")) {
+            UsuarioPrincipal.setText("");
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioPrincipalKeyTyped
+
+    private void ContrasenaInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContrasenaInicioMouseClicked
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasenaInicioMouseClicked
+
+    private void UsuarioPrincipalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioPrincipalMouseEntered
+        UsuarioPrincipal.setCaretPosition(0);
+        UsuarioPrincipal.setEnabled(true);
+        UsuarioPrincipal.requestFocus();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioPrincipalMouseEntered
+
+    private void ContrasenaInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContrasenaInicioMouseEntered
+        ContrasenaInicio.setCaretPosition(0);
+        ContrasenaInicio.setEnabled(true);
+        ContrasenaInicio.requestFocus();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasenaInicioMouseEntered
+
+    private void ContrasenaInicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContrasenaInicioKeyTyped
+        if (ContrasenaInicio.getText().equals("************")) {
+            ContrasenaInicio.setText("");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasenaInicioKeyTyped
 
     private void ContrasenaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaInicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ContrasenaInicioActionPerformed
 
+    private void ContrasenaInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContrasenaInicioMouseExited
+        if(ContrasenaInicio.getText().equals("")){
+            ContrasenaInicio.setText("************");
+            ContrasenaInicio.setEnabled(false);
+        }else if(ContrasenaInicio.getText().equals("************")){
+            ContrasenaInicio.setCaretColor(new Color(102,102,102));
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasenaInicioMouseExited
+
+    private void BtnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnLoginMouseEntered
+        BtnLogin.setBackground(new Color(0,156,223));
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnLoginMouseEntered
+
+    private void BtnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnLoginMouseExited
+        BtnLogin.setBackground(new Color(51,102,255));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnLoginMouseExited
+
+    private void UsuarioPrincipalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuarioPrincipalKeyPressed
+        if (UsuarioPrincipal.getText().equals("Ingrese su usuario")) {
+            UsuarioPrincipal.setText("");
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioPrincipalKeyPressed
+
+    private void ContrasenaInicioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContrasenaInicioKeyPressed
+        if (ContrasenaInicio.getText().equals("************")) {
+            ContrasenaInicio.setText("");
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasenaInicioKeyPressed
+    
     /**
      * @param args the command line arguments
      */
@@ -159,9 +334,13 @@ public class LoginVista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BtnLogin;
     public javax.swing.JPasswordField ContrasenaInicio;
+    private javax.swing.JLabel TXTusuario;
     public javax.swing.JTextField UsuarioPrincipal;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
