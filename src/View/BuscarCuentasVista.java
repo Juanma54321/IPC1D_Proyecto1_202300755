@@ -50,6 +50,7 @@ public class BuscarCuentasVista extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        Tabla1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         Tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -63,8 +64,8 @@ public class BuscarCuentasVista extends javax.swing.JFrame {
                 "CUI", "Nombre", "Apellido"
             }
         ));
+        Tabla1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Tabla1.setDragEnabled(true);
-        Tabla1.setEnabled(false);
         Tabla1.setShowGrid(true);
         jScrollPane1.setViewportView(Tabla1);
 
@@ -72,8 +73,23 @@ public class BuscarCuentasVista extends javax.swing.JFrame {
 
         BtnBuscar.setText("Buscar Cuentas Asociadas");
 
+        TablaCuentas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         TablaCuentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
                 {null},
                 {null},
                 {null},
@@ -106,7 +122,6 @@ public class BuscarCuentasVista extends javax.swing.JFrame {
                 "Cuentas Asociadas"
             }
         ));
-        TablaCuentas.setFocusable(false);
         TablaCuentas.setShowGrid(true);
         jScrollPane3.setViewportView(TablaCuentas);
 

@@ -8,6 +8,7 @@ import static Model.InformacionLogin.nombreUsuario;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 
 public class ControladorHistorial implements ActionListener {
@@ -32,13 +33,14 @@ public class ControladorHistorial implements ActionListener {
     //accion que realisara el boton buscar
     public void actionPerformed(ActionEvent e){
         String identificador = view.cajaIdentificador.getText();
-        
+        byte ContadorDinamico = 0;
         //vaciando todas las celdas de la tablaInfo
         for (int i = 0; i < 26; i++) {
             for (int j = 0; j < 6; j++) {
                 view.TablaInfo.setValueAt(" ",i,j);
             }
         }
+        
         
         //ingresando valores a las variables de la tabla
         for (int i = 0; i < cuentas.size(); i++) {
@@ -73,6 +75,7 @@ public class ControladorHistorial implements ActionListener {
                             contador++;
                             saldodisponible= saldodisponible + Float.parseFloat(credito);
                             this.view.TablaInfo.setValueAt(String.valueOf(saldodisponible),j,contador);
+                            ContadorDinamico++;
                     //ingresando las transacciones de retiro
                     }else{
                         debito=String.valueOf(cuentas.get(i).getEfectivo().get(j));
@@ -90,6 +93,7 @@ public class ControladorHistorial implements ActionListener {
                             contador++;
                             saldodisponible= saldodisponible -Float.valueOf(debito);
                             this.view.TablaInfo.setValueAt(String.valueOf(saldodisponible),j,contador);
+                            ContadorDinamico++;
                             
                     } 
                     
@@ -103,12 +107,22 @@ public class ControladorHistorial implements ActionListener {
                 view.cajaNombre.setText(nombre);
                 view.cajaApellido.setText(apellido);
                 //registrando la accion
-                bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Generacion de reporte - Resultado: Exitoso - Detalles: Historial encontrado para la cuenta "+view.cajaIdentificador.getText());
-       
+                bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario: "+nombreUsuario+" - Accion: Buscar Transacciones - Resultado: Exitoso - Detalles: Historial encontrado para la cuenta "+view.cajaIdentificador.getText());
+                
+                
                 break;
             }
-            
         }
+        if (ContadorDinamico==0) {
+            view.cajaApellido.setText("*******************************");
+            view.cajaNombre.setText("*****************");
+            view.cajaCUI.setText("******************************");
+            JOptionPane.showMessageDialog(view,"No existen transacciones para la cuenta seleccionada", "Error", JOptionPane.ERROR_MESSAGE);
+            //registrando la accion
+            bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario: "+nombreUsuario+" - Accion: Buscar Transacciones - Resultado: Error- Detalles: Historial no encontrado para la cuenta "+view.cajaIdentificador.getText());
+                
+        }
+        
         
         
         
