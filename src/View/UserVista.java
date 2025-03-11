@@ -71,9 +71,10 @@ public class UserVista extends javax.swing.JFrame {
         });
         jPanel1.add(btnHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 70, 70));
 
+        CajaAyuda.setBackground(new java.awt.Color(0, 0, 0));
         CajaAyuda.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        CajaAyuda.setForeground(new java.awt.Color(255, 255, 255));
         CajaAyuda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        CajaAyuda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CajaAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CajaAyudaActionPerformed(evt);
@@ -97,7 +98,7 @@ public class UserVista extends javax.swing.JFrame {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 110, 90));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 70, 70));
 
         btnBuscarCuentas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnBuscarCuentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BuscarCuentas.png"))); // NOI18N

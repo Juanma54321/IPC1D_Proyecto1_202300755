@@ -64,6 +64,7 @@ public class BuscarCuentasVista extends javax.swing.JFrame {
             }
         ));
         Tabla1.setDragEnabled(true);
+        Tabla1.setEnabled(false);
         Tabla1.setShowGrid(true);
         jScrollPane1.setViewportView(Tabla1);
 
@@ -105,6 +106,7 @@ public class BuscarCuentasVista extends javax.swing.JFrame {
                 "Cuentas Asociadas"
             }
         ));
+        TablaCuentas.setFocusable(false);
         TablaCuentas.setShowGrid(true);
         jScrollPane3.setViewportView(TablaCuentas);
 

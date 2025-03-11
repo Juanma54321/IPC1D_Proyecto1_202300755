@@ -3,6 +3,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class CrearCuenta {
     private String Identificador;
@@ -141,9 +142,18 @@ public class CrearCuenta {
                 cuentas.get(i).getID().add(String.valueOf(contador2));
                 break;
             }
+        } 
+    }
+    
+    //metodo para verificar si un usuario tiene las 40 cuentas
+    public boolean ContadordeCuentas(Long cui){
+        byte contador2=0;
+        for (int i = 0; i < cuentas.size(); i++) {
+            if (Objects.equals(cuentas.get(i).getCUI(), cui)) {
+                contador2++;
+            }
         }
-        
-        
+        return contador2<=41;
     }
     
     //metodo para asignarle a cada CUI un identificador unico
@@ -168,17 +178,4 @@ public class CrearCuenta {
         
         return cuentas;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
