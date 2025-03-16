@@ -42,13 +42,15 @@ public class ControladorDepositos implements ActionListener{
     
     //accion que realizara el boton Aceptar
     public void actionPerformed(ActionEvent e) {
+        //obtenemos los datos la vista
         float efectivo= Float.parseFloat(view.CajaMonto.getText());
         int contador = view.CajaCuenta.getSelectedIndex();
+        
         //verificando si la cantidad ingresada es valida
         if(efectivo>0 && cuentas.get(contador).getTransaccion().size()<=24){
             
             model.Deposito(efectivo,cuentas.get(contador).getIdentificador());
-            JOptionPane.showMessageDialog(view,"Deposito hecho con Exito","Inf.",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(view,"Deposito hecho con Exito. Saldo Disponible: Q"+cuentas.get(contador).getSaldo(),"Inf.",JOptionPane.INFORMATION_MESSAGE);
             view.dispose();
             //registrando la accion
             bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Deposito - Resultado: Exitoso - Detalles: Se deposito: Q"+view.CajaMonto.getText()+" a la cuenta: "+view.CajaCuenta.getItemAt(contador)+" saldo: Q" +cuentas.get(contador).getSaldo());  
@@ -64,6 +66,7 @@ public class ControladorDepositos implements ActionListener{
             //registrando la accion
             bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Deposito - Resultado: Error - Detalles: Cuenta alcanzo su numero maximo de transacciones");
        
+            System.out.println(cuentas.get(contador).getTransaccion().size());
         }
     }
 }

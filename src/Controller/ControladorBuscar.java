@@ -44,12 +44,12 @@ public class ControladorBuscar implements ActionListener {
     //metodo para refrescar la tabla de cuentas
     public void RegrescarTablaCuentas(){
         contador=0;
-        for (int i = 0; i < 25; i++) {
+        for (byte i = 0; i < 3; i++) {
                 this.vista.TablaCuentas.setValueAt(" ", i, 0);
             }
         
         if(cuentas.size()!=0){
-            for (int i = 0; i < cuentas.size(); i++) {
+            for (byte i = 0; i < cuentas.size(); i++) {
                 if(Long.parseLong(this.vista.CajaCUI.getText())==cuentas.get(i).getCUI()){
                     
                     String user;

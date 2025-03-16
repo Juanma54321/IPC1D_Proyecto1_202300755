@@ -41,12 +41,14 @@ public class ControladorRetiros implements ActionListener {
     }
     //accion que realizasa el boton aceptar
     public void actionPerformed(ActionEvent e){
+        
         float efectivo = Float.parseFloat(view.CajaMonto.getText());
         int contador = view.CajaCuenta.getSelectedIndex();
-        //veririfacando fondos y si la cantidad ingresada es correcta
+        
+        //veririfacando fondos, si la cantidad ingresada es correcta y el numero de transaccion
         if(efectivo>0 && cuentas.get(contador).getSaldo()>=efectivo && cuentas.get(contador).getTransaccion().size()<=24){
             model.Retiros(efectivo, cuentas.get(contador).getIdentificador());
-            JOptionPane.showMessageDialog(view,"Retiro hecho con Exito","Inf.",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(view,"Retiro hecho con Exito. Saldo Disponible: Q"+cuentas.get(contador).getSaldo(),"Inf.",JOptionPane.INFORMATION_MESSAGE);
             view.dispose();
             //registrando la accion
             bitacora.add(ControladorPrincipal.HoraAccion()+" Usuario:"+nombreUsuario+" - Accion: Retiro - Resultado: Exitoso - Detalles: Se retiro: Q"+view.CajaMonto.getText()+" a la cuenta: "+view.CajaCuenta.getItemAt(contador)+" saldo: Q" +cuentas.get(contador).getSaldo());  

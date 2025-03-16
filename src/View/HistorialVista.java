@@ -30,6 +30,7 @@ public class HistorialVista extends javax.swing.JFrame {
         TablaInfo = new javax.swing.JTable();
         cajaApellido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         cajaIdentificador = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
@@ -41,11 +42,15 @@ public class HistorialVista extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Buscar");
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        TablaInfo.setBackground(new java.awt.Color(51, 51, 51));
         TablaInfo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        TablaInfo.setForeground(new java.awt.Color(255, 255, 255));
         TablaInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -79,48 +84,85 @@ public class HistorialVista extends javax.swing.JFrame {
                 "ID", "Fecha", "Detalle", "Débito", "Crédito", "Saldo Disponible"
             }
         ));
+        TablaInfo.setFocusable(false);
         TablaInfo.setShowGrid(true);
         jScrollPane1.setViewportView(TablaInfo);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 158, 580, 160));
 
         cajaApellido.setEditable(false);
+        cajaApellido.setBackground(new java.awt.Color(0, 0, 0));
+        cajaApellido.setForeground(new java.awt.Color(255, 255, 255));
         cajaApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cajaApellido.setText("*******************************");
+        cajaApellido.setBorder(null);
+        cajaApellido.setFocusable(false);
         jPanel1.add(cajaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 97, -1));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Apellido");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 90, 20));
 
+        cajaIdentificador.setBackground(new java.awt.Color(0, 0, 0));
+        cajaIdentificador.setForeground(new java.awt.Color(255, 255, 255));
         cajaIdentificador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(cajaIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 87, -1));
+        cajaIdentificador.setText("XXXXXXXX");
+        cajaIdentificador.setBorder(null);
+        cajaIdentificador.setCaretColor(new java.awt.Color(255, 255, 255));
+        cajaIdentificador.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+        cajaIdentificador.setEnabled(false);
+        cajaIdentificador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cajaIdentificadorMouseEntered(evt);
+            }
+        });
+        cajaIdentificador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cajaIdentificadorKeyPressed(evt);
+            }
+        });
+        jPanel1.add(cajaIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 87, 20));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Identificador");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        btnBuscar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        btnBuscar.setText("<html><center>Buscar Transaciones</center></html>");
-        btnBuscar.setMargin(new java.awt.Insets(2, 7, 3, 14));
-        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 85, 33));
+        btnBuscar.setBackground(new java.awt.Color(51, 102, 255));
+        btnBuscar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setText("Buscar");
+        btnBuscar.setBorder(null);
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 80, 40));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CUI");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         cajaCUI.setEditable(false);
+        cajaCUI.setBackground(new java.awt.Color(0, 0, 0));
+        cajaCUI.setForeground(new java.awt.Color(255, 255, 255));
         cajaCUI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cajaCUI.setText("******************************");
+        cajaCUI.setBorder(null);
+        cajaCUI.setFocusable(false);
         jPanel1.add(cajaCUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 112, -1));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
 
         cajaNombre.setEditable(false);
+        cajaNombre.setBackground(new java.awt.Color(0, 0, 0));
+        cajaNombre.setForeground(new java.awt.Color(255, 255, 255));
         cajaNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cajaNombre.setText("*****************");
+        cajaNombre.setBorder(null);
+        cajaNombre.setFocusable(false);
         cajaNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cajaNombreActionPerformed(evt);
@@ -132,9 +174,7 @@ public class HistorialVista extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,6 +189,22 @@ public class HistorialVista extends javax.swing.JFrame {
     private void cajaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cajaNombreActionPerformed
+
+    private void cajaIdentificadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cajaIdentificadorMouseEntered
+        cajaIdentificador.setEnabled(true);
+        cajaIdentificador.setCaretPosition(0);
+        cajaIdentificador.requestFocus();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cajaIdentificadorMouseEntered
+
+    private void cajaIdentificadorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaIdentificadorKeyPressed
+        if (cajaIdentificador.getText().equals("XXXXXXXX")) {
+            cajaIdentificador.setText("");
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cajaIdentificadorKeyPressed
 
     /**
      * @param args the command line arguments
@@ -199,5 +255,6 @@ public class HistorialVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

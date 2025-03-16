@@ -139,13 +139,22 @@ public class CrearUsuarioVista extends javax.swing.JFrame {
         btnCrear.setForeground(new java.awt.Color(255, 255, 255));
         btnCrear.setText("CREAR");
         btnCrear.setBorder(null);
+        if(!txtCUI.getText().equals("0000000000000") && !txtNombre.getText().equals("Ingrese el nombre") && !txtApellido.getText().equals("Ingrese el apellido")){
+            btnCrear.setEnabled(true);
+        };
         btnCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCrear.setEnabled(false);
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCrearMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCrearMouseExited(evt);
+            }
+        });
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
             }
         });
         jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 80, 30));
@@ -181,6 +190,7 @@ public class CrearUsuarioVista extends javax.swing.JFrame {
     private void txtCUIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCUIKeyPressed
         if (txtCUI.getText().equals("0000000000000")) {
             txtCUI.setText("");
+            btnCrear.setEnabled(true);
         }
 
         // TODO add your handling code here:
@@ -228,6 +238,10 @@ public class CrearUsuarioVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoKeyPressed
 
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,6 +276,8 @@ public class CrearUsuarioVista extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCrear;

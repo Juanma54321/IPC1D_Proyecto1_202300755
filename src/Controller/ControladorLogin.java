@@ -36,6 +36,7 @@ public class ControladorLogin implements ActionListener {
         if (modelo.ConfirmarInformacion(modelo.nombreUsuario, modelo.Contrasena)){
             //iniciado el controlador principal
             UserVista view1= new UserVista();
+            JOptionPane.showMessageDialog(view1,"Bienvenido "+ modelo.getNombreUsuario(), "INF.", JOptionPane.INFORMATION_MESSAGE);
             ControladorPrincipal control1= new ControladorPrincipal(view1); 
             control1.ActualizarAyuda();
             control1.iniciarPrincipal();

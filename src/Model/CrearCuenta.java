@@ -145,7 +145,7 @@ public class CrearCuenta {
         } 
     }
     
-    //metodo para verificar si un usuario tiene las 40 cuentas
+    //metodo para verificar si un usuario tiene las 3 cuentas
     public boolean ContadordeCuentas(Long cui){
         byte contador2=0;
         for (int i = 0; i < cuentas.size(); i++) {
@@ -153,7 +153,7 @@ public class CrearCuenta {
                 contador2++;
             }
         }
-        return contador2<=41;
+        return contador2<=2;
     }
     
     //metodo para asignarle a cada CUI un identificador unico

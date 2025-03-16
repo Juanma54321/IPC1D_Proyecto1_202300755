@@ -50,6 +50,7 @@ public class UserVista extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -216,6 +217,9 @@ public class UserVista extends javax.swing.JFrame {
         jLabel7.setText("Generar Reporte");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
 
+        jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 10, 210));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -326,5 +330,6 @@ public class UserVista extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     // End of variables declaration//GEN-END:variables
 }

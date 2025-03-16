@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 public class ControladorGenerarReporte implements ActionListener {
     ReporteVista view;
@@ -122,11 +123,11 @@ public class ControladorGenerarReporte implements ActionListener {
                     }
                     document.add(new Paragraph());
                     document.close();
-                    System.out.println("pdf creado");
+                
                 }catch(DocumentException | IOException f){
                     f.printStackTrace();
                 }
-               
+                JOptionPane.showMessageDialog(view,"Reporte creado con exito", "INFO.", JOptionPane.INFORMATION_MESSAGE);
             break;
             
             //accion del boton Historial de Depositos
@@ -184,11 +185,12 @@ public class ControladorGenerarReporte implements ActionListener {
                     }
                     document1.add(new Paragraph());
                     document1.close();
-                    System.out.println("pdf creado");
+                    
                 }catch(DocumentException | IOException g){
                     g.printStackTrace();
                 }
                 
+                JOptionPane.showMessageDialog(view,"Reporte creado con exito", "INFO.", JOptionPane.INFORMATION_MESSAGE);
             break;
             
             //accion del boton Historial de Retiros
@@ -246,10 +248,12 @@ public class ControladorGenerarReporte implements ActionListener {
                     }
                     document2.add(new Paragraph());
                     document2.close();
-                    System.out.println("pdf creado");
+                    
                 }catch(DocumentException | IOException u){
                     u.printStackTrace();
                 }
+                
+                JOptionPane.showMessageDialog(view,"Reporte creado con exito", "INFO.", JOptionPane.INFORMATION_MESSAGE);
             break;    
         }
         //registrando la accion
