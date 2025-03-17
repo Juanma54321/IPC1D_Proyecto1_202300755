@@ -24,13 +24,19 @@ public class DepositosVista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         CajaCuenta = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         CajaMonto = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         CajaCuenta.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         CajaCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -39,51 +45,55 @@ public class DepositosVista extends javax.swing.JFrame {
                 CajaCuentaActionPerformed(evt);
             }
         });
+        jPanel1.add(CajaCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, -1));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jLabel1.setText("Monto");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Q");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
 
+        CajaMonto.setBackground(new java.awt.Color(0, 0, 0));
+        CajaMonto.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        CajaMonto.setForeground(new java.awt.Color(255, 255, 255));
+        CajaMonto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CajaMonto.setText("00.00");
+        CajaMonto.setToolTipText("");
+        CajaMonto.setBorder(null);
         CajaMonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CajaMontoActionPerformed(evt);
             }
         });
+        CajaMonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CajaMontoKeyPressed(evt);
+            }
+        });
+        jPanel1.add(CajaMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 60, -1));
 
+        btnAceptar.setBackground(new java.awt.Color(51, 102, 255));
         btnAceptar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
         btnAceptar.setText("Aceptar");
+        btnAceptar.setBorder(null);
+        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 80, 40));
+
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Monto:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 70, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(CajaCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(CajaMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(btnAceptar)))
-                .addContainerGap(47, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(CajaCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CajaMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAceptar)
-                .addContainerGap(12, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
         );
 
         pack();
@@ -96,6 +106,13 @@ public class DepositosVista extends javax.swing.JFrame {
     private void CajaMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CajaMontoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CajaMontoActionPerformed
+
+    private void CajaMontoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CajaMontoKeyPressed
+        if (CajaMonto.getText().equals("00.00")) {
+            CajaMonto.setText("");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CajaMontoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -137,5 +154,8 @@ public class DepositosVista extends javax.swing.JFrame {
     public javax.swing.JTextField CajaMonto;
     public javax.swing.JButton btnAceptar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
